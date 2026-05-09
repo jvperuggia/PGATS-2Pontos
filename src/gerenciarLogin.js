@@ -84,9 +84,7 @@ export function validarUsuarioExpirado(id){
         
         if (usuarios[i].expirado == true) {
             return usuarios[i].expirado 
-        }
-
-        
+        }  
     } 
 };
 
@@ -100,10 +98,6 @@ export function validarDadosNaoCadastrados(email, senha) {
   if (usuario.senha !== senha) {
     throw new Error('Senha incorreta');
   }
-
-  if (usuario.email === email && usuario.senha === senha){
-    console.log('O login foi realizado com sucesso!');
-  };
 }
 
 
