@@ -102,3 +102,23 @@ export function validarDadosNaoCadastrados(email, senha) {
 
 
 
+
+
+
+
+
+
+
+export function validarLoginMelhorado(email, senha) {
+  
+    for (let usuario of usuarios){
+
+        if (usuario.email===email && usuario.senha===senha){
+            return 'Usuário logado com sucesso!';
+        }
+
+    }
+    return 'Usuário não encontrado';
+}
+
+

@@ -15,5 +15,13 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvperuggia/PGATS-2Pontos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvperuggia/PGATS-2Pontos/issues"
+  },
+  "homepage": "https://github.com/jvperuggia/PGATS-2Pontos#readme"
 }

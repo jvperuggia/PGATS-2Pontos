@@ -1,8 +1,11 @@
-import { validarLoginComSucesso, validarUsuarioExpirado, validarDadosNaoCadastrados } from "../src/gerenciarLogin.js";
+import { validarLoginComSucesso, validarUsuarioExpirado, validarDadosNaoCadastrados, validarLoginMelhorado } from "../src/gerenciarLogin.js";
 import assert from 'node:assert';
 
 describe ('Testes de gerenciamento do Login', function(){
 
+/*
+*      ------ Validar login ------
+*/
     it('Validar que uma mensagem é apresentada ao realizar login com sucesso', function (){
         //arrange
         const id = 8;
@@ -19,6 +22,9 @@ describe ('Testes de gerenciamento do Login', function(){
         
     }); 
 
+/*
+*      ------ Validar login expirado ------
+*/
     it('Validar usuário com login expirado', function (){
         //arrange
         const id = 21;
@@ -29,7 +35,11 @@ describe ('Testes de gerenciamento do Login', function(){
         //assert
         assert.equal(retornoDaFuncao, loginExperido);
     });
-    
+
+
+/*
+*      ------ Validar Email nao cadastrado ------
+*/
     it('Validar email não cadastrado', function (){
         //arrange
         const emailNaoCadastrado = 'nome@email.com.br'
@@ -41,6 +51,9 @@ describe ('Testes de gerenciamento do Login', function(){
 
     });
     
+/*
+*      ------ Validar Senha incorreta ------
+*/
     it('Validar senha incorreta', function (){
         //arrange
         const emailCadastrado = 'seninha_f1@senna.com.br'
@@ -51,5 +64,28 @@ describe ('Testes de gerenciamento do Login', function(){
         );
 
     });
+
+
+/*
+*      ------ Validar login melhorado ------
+*/
+    it('Deve retornar "Usuário logado com sucesso!" quando o usuario com login e senha for encontrado', function (){
+        //arrange
+        const resultado = validarLoginMelhorado('seninha_f1@senna.com.br','tambulero_93')
+    
+        //assert
+        assert.equal(resultado,'Usuário logado com sucesso!')
+
+    });
+
+    it('Deve retornar "Usuário não encontrado" quando o usuario não for encontrado', function (){
+        //arrange
+        const resultado = validarLoginMelhorado('joao.estrela@senna.com.br','12393')
+    
+        //assert
+        assert.equal(resultado,'Usuário não encontrado')
+
+    });
+
 
 })
